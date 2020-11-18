@@ -1,0 +1,76 @@
+.body {
+    margin: 0px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: red;
+}
+
+.main__grid-container {
+    background-color: green;
+    display: grid;
+    grid-template: repeat(3, 150px) / repeat(4, 150px);
+    grid-gap: 30px;
+    padding: 20px 40px;
+}
+
+.card {
+    perspective: 1000px;
+    font-size: 34px;
+}
+
+.card__flipper {
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    /* position: relative; */
+}
+
+.card__flipper--flip {
+    transform: rotateY(180deg);
+}
+
+.card__flipper-front, .card__flipper-back {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+
+.card__flipper-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background-color: pink;
+}
+
+.card__flipper-back {
+    transform: rotateY(180deg);
+    background-color: orange;
+}
+
+
+
+.footer {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+.static {
+    transform: none;
+}
+
