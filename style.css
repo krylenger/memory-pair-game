@@ -1,6 +1,6 @@
 .body {
     margin: 0px;
-    background-color: grey;
+    /* background-color: grey; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,21 +16,105 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .main__grid-container {
-    background-color: green;
+    /* background-color: green; */
     display: grid;
-    grid-template: repeat(3, 150px) / repeat(4, 150px);
-    grid-gap: 30px;
+    grid-template: repeat(4, 150px) / repeat(5, 150px);
+    grid-gap: 10px;
     padding: 20px 40px;
 }
 
 .card {
     perspective: 1000px;
-    font-size: 34px;
+    font-size: 20px;
 }
+
+.card--0 {
+    grid-column: 1;
+    grid-row: 4;
+    /* margin-left: 10px; */
+
+}
+
+.card--1 {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.card--2 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.card--3 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.card--4 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.card--5 {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.card--6 {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.card--7 {
+    grid-column: 5;
+    grid-row: 2;
+}
+
+.card--8 {
+    grid-column: 5;
+    grid-row: 3;
+}
+
+.card--9 {
+    grid-column: 4;
+    grid-row: 4;
+    /* margin-left: 20px; */
+}
+
+.card--orel-img {
+    background-image: url('orel.jpeg');
+    background-size: cover;
+}
+
+.card--gopgop-img {
+    background-image: url('gopgop.jpg');
+    background-size: cover;
+}
+
+.card--cadilac-img {
+    background-image: url('cadilac.jpg');
+    background-size: cover;
+}
+
+.card--tanci-img {
+    background-image: url('tanci.jpg');
+    background-size: cover;
+}
+
+.card--dim-img {
+    background-image: url('dim.jpeg');
+    background-size: cover;
+}
+
+.card--music-img {
+    background-image: url('music.png');
+    background-size: cover;
+}
+
 
 .card__flipper {
     transition: 0.5s;
@@ -59,7 +143,7 @@
 
 .card__flipper-back {
     transform: rotateY(180deg);
-    background-color: orange;
+    background-color: pink;
 }
 
 
