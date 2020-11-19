@@ -29,15 +29,13 @@
 .header__title--subtitle {
     background-color: yellow;
     font-size: 27px;
-    font-weight: bold;
-    font-weight: 500;
-    
 }
 
 .main {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .main__grid-container {
@@ -145,6 +143,7 @@
 .card__flipper {
     transition: 0.5s;
     transform-style: preserve-3d;
+    position: relative;
 }
 
 .card__flipper--flip {
@@ -156,6 +155,7 @@
     width: 150px;
     position: absolute;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     border-radius: 10px;
 }
 
@@ -163,11 +163,14 @@
     z-index: 2;
     transform: rotateY(0deg);
     border: 1px solid black;
+    background-color: rgba(209, 208, 208, 0.7);
+
 }
 
 .card__flipper-back {
     transform: rotateY(180deg);
     border: 1px solid black;
+    /* background-color: rgba(209, 208, 208, 0.7); */
 }
 
 .static {
@@ -180,9 +183,9 @@
     height: 200px;
     width: 200px;
     left: 55%;
-    top: 50%;
+    top: 460px;
     transform: translate(-50%, -50%);
-    transition-duration: 2s;
+    /* transition-duration: 2s; */
     transition-timing-function: linear;
     background-image: url('images/thumbs-up.png');
     background-size: cover;
@@ -197,26 +200,16 @@
     .main__grid-container {
         grid-template: repeat(4, 100px) / repeat(5, 100px);
         grid-gap: 5px;
-        padding: 20px 40px;
     }
 
     .card__flipper-front, .card__flipper-back {
         height: 100px;
         width: 100px;
-        position: absolute;
-        backface-visibility: hidden;
-        border-radius: 10px;
     }
 
     .modal {
         height: 100px;
         width: 100px;
-        left: 55%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition-duration: 2s;
-        transition-timing-function: linear;
-        background-image: url('images/thumbs-up.png');
-        background-size: cover;
+        top: 370px;
     }
 } 
