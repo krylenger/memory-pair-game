@@ -209,7 +209,7 @@ const flipTwoCards = () => {
 
           clickCounter += 1;
           playingCards.push(target.classList.value);
-          if (clickCounter === 2 && playingCards[0] === playingCards[1]) {
+          if (clickCounter === 2 && playingCards[0].match(/^.{21}/)[0] === playingCards[1].match(/^.{21}/)[0]) {
             handlePlayingCards('guessed');
             modal.classList.add('modal--visible');
             setTimeout(() => {
