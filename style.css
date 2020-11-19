@@ -6,6 +6,8 @@
 .body {
     margin: 0px;
     display: grid;
+    background-color: seashell;
+
 }
 
 .header {
@@ -141,12 +143,15 @@
 }
 
 .card__flipper {
+    -webkit-transition: -webkit-transform 500ms ease;
     transition: 0.5s;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     position: relative;
 }
 
 .card__flipper--flip {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -154,8 +159,8 @@
     height: 150px;
     width: 150px;
     position: absolute;
-    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     border-radius: 10px;
 }
 
@@ -197,6 +202,15 @@
 
 
 @media screen and (max-width: 870px), (max-height: 770px)  {
+    
+    .header__title {
+        font-size: 22px;
+    }
+
+    .header__title--subtitle {
+        font-size: 20px;
+    }
+    
     .main__grid-container {
         grid-template: repeat(4, 100px) / repeat(5, 100px);
         grid-gap: 5px;
