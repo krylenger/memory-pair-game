@@ -80,7 +80,7 @@ const createNewCard = (card, cardNumber) => {
     }
     newCardFlipper.classList.add('card__flipper');
     newCardFlipper.setAttribute('ontouchstart', "this.classList.toggle('card__flipper--flip');")
-    newCardFlipperFront.classList.add('card__flipper-front', card.key);
+    newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--clef-img`);
     newCardFlipperBack.classList.add('card__flipper-back');
     newCard.appendChild(newCardFlipper);
     newCardFlipper.appendChild(newCardFlipperFront);
