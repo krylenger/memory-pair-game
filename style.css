@@ -220,7 +220,14 @@
     display: block;
 }
 
-@media screen and (max-width: 870px), (max-height: 770px)  {
+.rules {
+    font-size: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 100px;
+}
+
+@media screen and (max-width: 870px), (max-height: 850px)  {
     
     .header__title {
         font-size: 22px;
