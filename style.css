@@ -226,4 +226,42 @@
         width: 100px;
         top: 370px;
     }
-} 
+}
+
+@media screen and (max-width: 600px) {
+    
+    .header__title {
+        /* background-color: skyblue; */
+        text-align: center;
+        width: 100%;
+        height: 30px;
+        padding: 10px 0px;
+        font-size: 10px;
+        /* font-weight: 500; */
+        padding-left: 50px;
+    }
+
+    .header__title {
+        font-size: 17px;
+    }
+
+    .header__title--subtitle {
+        font-size: 15px;
+    }
+
+    .main__grid-container {
+        grid-template: repeat(4, 50px) / repeat(5, 50px);
+        grid-gap: 5px;
+    }
+
+    .card__flipper-front, .card__flipper-back {
+        height: 50px;
+        width: 50px;
+    }
+
+    .modal {
+        height: 100px;
+        width: 100px;
+        top: 370px;
+    }
+}
