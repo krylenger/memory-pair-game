@@ -4,6 +4,8 @@ const tanciSong = new Audio('music/tanci.mp3');
 const cadilacSong = new Audio('music/cadilac.mp3');
 const dimSong = new Audio('music/dim.mp3');
 
+let playedSongs = [];
+
 const cards = [
     {
         key: 1,
@@ -103,13 +105,18 @@ const loadCards = (cardsArr) => {
     mainGridContainer.appendChild(fragment);
 }
 
-const resetGame = () => {
+const recreateMainGridContainer = () => {
     mainGridContainer.remove();
     mainGridContainer = document.createElement('div');
     mainGridContainer.classList.add('main__grid-container');
     main.appendChild(mainGridContainer);
-    
+}
+
+const resetGame = () => {
+    recreateMainGridContainer();
     loadCards(cards);
+    guessedCards = [];
+    playedSongs = [];
     handleClick();
 }
 
@@ -128,26 +135,28 @@ const handlePlayingCards = (cardStatus) => {
     });
 }
 
+
 const handleGameOver = (guessedCards) => {
     if (guessedCards === 10) {
         setTimeout(() => {
             alert(`Congratulations! Let's play once more!`);
-            resetGame();
-            guessedCards = [];
+            resetGame(guessedCards);
         }, 1000)
     }
 }
 
-let playedSongs = [];
+const stopPreviousSong = (playedSongs) => {
+    let previousSong = playedSongs[playedSongs.length - 1];
+    previousSong.pause();
+    previousSong.currentTime = 0;
+}
 
 const handleMusicCard = (target) => {
     if (target.parentNode.parentNode.classList.contains('musicCard')) {
         const targetKeyNumber = target.classList.value.match(/\d/)[0];
         const targetObj = cards.find((card) => card.musicCard && card.key === Number.parseInt(targetKeyNumber, 10));
         if (playedSongs.length) {
-            let previousSong = playedSongs[playedSongs.length - 1];
-            previousSong.pause();
-            previousSong.currentTime = 0;
+            stopPreviousSong(playedSongs);
         }
         playedSongs.push(targetObj.song);
         targetObj.song.play();
@@ -202,4 +211,3 @@ const initApp = () => {
 }
 
 document.addEventListener('DOMContentLoaded', initApp);
-
