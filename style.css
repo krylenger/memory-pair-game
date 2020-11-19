@@ -1,38 +1,46 @@
 * {
-    font-family: 'Abel', sans-serif;
+    /* font-family: 'Abel', sans-serif; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .body {
     margin: 0px;
-    /* background-color: grey; */
     display: grid;
-    grid-template-rows: 1fr 9fr 1fr;
-    /* flex-direction: column;
-    justify-content: center; */
 }
 
 .header {
-    background-color: rgba(0, 102, 255, 0.7);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* height: 80px; */
+    align-items: center;
 }
 
 .header__title {
-    margin-left: 150px;
+    background-color: skyblue;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    padding: 10px 0px;
+    font-size: 30px;
+    font-weight: 500;
+    padding-left: 150px;
+}
 
+.header__title--subtitle {
+    background-color: yellow;
+    font-size: 27px;
+    font-weight: bold;
+    font-weight: 500;
+    
 }
 
 .main {
     width: 100%;
-    /* height: 83vh; */
     display: flex;
     justify-content: center;
-    /* background-color: red; */
 }
 
 .main__grid-container {
-    /* background-color: green; */
     display: grid;
     grid-template: repeat(4, 150px) / repeat(5, 150px);
     grid-gap: 10px;
@@ -93,48 +101,50 @@
 .card--9 {
     grid-column: 4;
     grid-row: 4;
-    /* margin-left: 20px; */
+}
+
+.card--background-green {
+    background-color: palegreen;
 }
 
 .card--orel-img {
-    background-image: url('orel.jpeg');
+    background-image: url('images/orel.png');
     background-size: cover;
 }
 
 .card--gopgop-img {
-    background-image: url('gopgop.jpg');
+    background-image: url('images/gopgop.png');
     background-size: cover;
 }
 
 .card--cadilac-img {
-    background-image: url('cadilac.jpg');
+    background-image: url('images/cadilac.png');
     background-size: cover;
 }
 
 .card--tanci-img {
-    background-image: url('tanci.jpg');
+    background-image: url('images/tanci.png');
     background-size: cover;
 }
 
 .card--dim-img {
-    background-image: url('dim.jpeg');
+    background-image: url('images/dim.png');
     background-size: cover;
 }
 
 .card--music-img {
-    background-image: url('music.png');
+    background-image: url('images/music.png');
     background-size: cover;
 }
 
 .card--clef-img {
-    background-image: url('clef.png');
+    background-image: url('images/clef.png');
     background-size: cover;
 }
 
 .card__flipper {
     transition: 0.5s;
     transform-style: preserve-3d;
-    /* position: relative; */
 }
 
 .card__flipper--flip {
@@ -152,7 +162,6 @@
 .card__flipper-front {
     z-index: 2;
     transform: rotateY(0deg);
-    /* background-color: pink; */
     border: 1px solid black;
 }
 
@@ -161,16 +170,53 @@
     border: 1px solid black;
 }
 
-
-
-.footer {
-    background-color: rgba(255, 208, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    /* height: 80px; */
-}
-
 .static {
     transform: none;
 }
 
+.modal {
+    position: fixed;
+    display: none;
+    height: 200px;
+    width: 200px;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    background-image: url('images/thumbs-up.png');
+    background-size: cover;
+}
+
+.modal--visible {
+    display: block;
+}
+
+
+@media screen and (max-width: 870px), (max-height: 770px)  {
+    .main__grid-container {
+        grid-template: repeat(4, 100px) / repeat(5, 100px);
+        grid-gap: 5px;
+        padding: 20px 40px;
+    }
+
+    .card__flipper-front, .card__flipper-back {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        backface-visibility: hidden;
+        border-radius: 10px;
+    }
+
+    .modal {
+        height: 100px;
+        width: 100px;
+        left: 55%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition-duration: 2s;
+        transition-timing-function: linear;
+        background-image: url('images/thumbs-up.png');
+        background-size: cover;
+    }
+} 

@@ -1,8 +1,8 @@
-const orelSong = new Audio('orel.mp3');
-const gopgopSong = new Audio('gopgop.mp3');
-const tanciSong = new Audio('tanci.mp3');
-const cadilacSong = new Audio('cadilac.mp3');
-const dimSong = new Audio('dim.mp3');
+const orelSong = new Audio('music/orel.mp3');
+const gopgopSong = new Audio('music/gopgop.mp3');
+const tanciSong = new Audio('music/tanci.mp3');
+const cadilacSong = new Audio('music/cadilac.mp3');
+const dimSong = new Audio('music/dim.mp3');
 
 const cards = [
     {
@@ -64,6 +64,7 @@ const cards = [
 
 const main = document.querySelector('.main');
 let mainGridContainer = document.querySelector('.main__grid-container');
+const modal = document.querySelector('.modal');
 
 
 const createNewCard = (card, cardNumber) => {
@@ -116,6 +117,11 @@ const handlePlayingCards = (cardStatus) => {
     const playingNow = document.querySelectorAll(".playingNow");
     playingNow.forEach((card) => {
         card.classList.remove("playingNow");
+        if (cardStatus === 'guessed') {
+            setTimeout(() => {
+                card.parentNode.parentNode.classList.add('card--background-green');
+            }, 300)
+        }; 
         setTimeout(() => {
             card.parentNode.classList.toggle(cardStatus);
         }, 1000)
@@ -125,7 +131,7 @@ const handlePlayingCards = (cardStatus) => {
 const handleGameOver = (guessedCards) => {
     if (guessedCards === 10) {
         setTimeout(() => {
-            alert('won!');
+            alert(`Congratulations! Let's play once more!`);
             resetGame();
             guessedCards = [];
         }, 1000)
@@ -138,15 +144,12 @@ const handleMusicCard = (target) => {
     if (target.parentNode.parentNode.classList.contains('musicCard')) {
         const targetKeyNumber = target.classList.value.match(/\d/)[0];
         const targetObj = cards.find((card) => card.musicCard && card.key === Number.parseInt(targetKeyNumber, 10));
-        // console.log(targetObj);
         if (playedSongs.length) {
             let previousSong = playedSongs[playedSongs.length - 1];
             previousSong.pause();
             previousSong.currentTime = 0;
         }
         playedSongs.push(targetObj.song);
-
-        console.log(playedSongs);
         targetObj.song.play();
         
     };
@@ -170,6 +173,10 @@ const flipTwoCards = () => {
           playingCards.push(target.classList.value);
           if (clickCounter === 2 && playingCards[0] === playingCards[1]) {
             handlePlayingCards('guessed');
+            modal.classList.add('modal--visible');
+            setTimeout(() => {
+                modal.classList.remove('modal--visible');
+            }, 1200)
             clickCounter = 0;
             playingCards = [];
             guessedCards += 2;
