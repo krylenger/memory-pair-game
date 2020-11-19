@@ -69,7 +69,36 @@ let mainGridContainer = document.querySelector('.main__grid-container');
 const modal = document.querySelector('.modal');
 
 
+const styleNewCardFlipperFront = (newCardFlipperFront, card, cardNumber) => {
+    switch (cardNumber) {
+        case 0:
+        case 9:
+            newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--circle-img`);
+            break;
+        case 1:
+        case 2:
+        case 7:
+        case 8:
+            newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--vertical-line-img`);
+            break;
+        case 3:
+            newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--left-corner-img`);
+            break;
+        case 6:
+            newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--right-corner-img`);
+            break;
+        case 4:
+        case 5:
+            newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--horizontal-line-img`);
+            break;
+        default:
+            newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--clef-img`);
+    }
+    
+}
+
 const createNewCard = (card, cardNumber) => {
+    console.log(cardNumber);
     const newCard = document.createElement('div');
     const newCardFlipper = document.createElement('div');
     const newCardFlipperFront = document.createElement('div');
@@ -83,7 +112,7 @@ const createNewCard = (card, cardNumber) => {
     }
     newCardFlipper.classList.add('card__flipper');
     newCardFlipper.setAttribute('ontouchstart', "this.classList.toggle('card__flipper--flip');")
-    newCardFlipperFront.classList.add('card__flipper-front', card.key, `card--clef-img`);
+    styleNewCardFlipperFront(newCardFlipperFront, card, cardNumber);
     newCardFlipperBack.classList.add('card__flipper-back');
     newCard.appendChild(newCardFlipper);
     newCardFlipper.appendChild(newCardFlipperFront);
