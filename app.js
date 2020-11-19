@@ -132,14 +132,23 @@ const handleGameOver = (guessedCards) => {
     }
 }
 
-
+let playedSongs = [];
 
 const handleMusicCard = (target) => {
     if (target.parentNode.parentNode.classList.contains('musicCard')) {
         const targetKeyNumber = target.classList.value.match(/\d/)[0];
         const targetObj = cards.find((card) => card.musicCard && card.key === Number.parseInt(targetKeyNumber, 10));
-        console.log(targetObj);
+        // console.log(targetObj);
+        if (playedSongs.length) {
+            let previousSong = playedSongs[playedSongs.length - 1];
+            previousSong.pause();
+            previousSong.currentTime = 0;
+        }
+        playedSongs.push(targetObj.song);
+
+        console.log(playedSongs);
         targetObj.song.play();
+        
     };
 }
 

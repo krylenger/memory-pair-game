@@ -7,7 +7,7 @@
 }
 
 .header {
-    background-color: yellow;
+    background-color: rgb(0, 102, 255);
     display: flex;
     justify-content: center;
 }
@@ -143,13 +143,13 @@
 
 .card__flipper-back {
     transform: rotateY(180deg);
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 
 
 .footer {
-    background-color: blue;
+    background-color: rgb(255, 208, 0);
     display: flex;
     justify-content: center;
 }
