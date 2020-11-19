@@ -53,6 +53,8 @@
 .card--0 {
     grid-column: 1;
     grid-row: 4;
+    margin-left: 40px;
+
 
 }
 
@@ -99,6 +101,8 @@
 .card--9 {
     grid-column: 4;
     grid-row: 4;
+    margin-left: 40px;
+
 }
 
 .card--background-green {
