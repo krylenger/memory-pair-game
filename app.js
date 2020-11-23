@@ -5,6 +5,7 @@ const cadilacSong = new Audio('music/cadilac.mp3');
 const dimSong = new Audio('music/dim.mp3');
 
 let playedSongs = [];
+const oneSecond = 1000;
 
 const cards = [
     {
@@ -148,7 +149,7 @@ const resetGame = () => {
     loadCards(cards);
     guessedCards = [];
     playedSongs = [];
-    handleClick();
+    flipCards();
 }
 
 const handlePlayingCards = (cardStatus) => {
@@ -158,11 +159,11 @@ const handlePlayingCards = (cardStatus) => {
         if (cardStatus === 'guessed') {
             setTimeout(() => {
                 card.parentNode.parentNode.classList.add('card--background-green');
-            }, 300)
+            }, oneSecond / 3)
         }; 
         setTimeout(() => {
             card.parentNode.classList.toggle(cardStatus);
-        }, 1000)
+        }, oneSecond)
     });
 }
 
@@ -172,7 +173,7 @@ const handleGameOver = (guessedCards) => {
         setTimeout(() => {
             alert(`Congratulations! Let's play once more!`);
             resetGame(guessedCards);
-        }, 1000)
+        }, oneSecond)
     }
 }
 
@@ -195,7 +196,7 @@ const handleMusicCard = (target) => {
     };
 }
 
-const flipTwoCards = () => {
+const flipCards = () => {
     let clickCounter = 0;
     let guessedCards = 0;
     let playingCards = [];
@@ -216,7 +217,7 @@ const flipTwoCards = () => {
             modal.classList.add('modal--visible');
             setTimeout(() => {
                 modal.classList.remove('modal--visible');
-            }, 1200)
+            }, oneSecond)
             clickCounter = 0;
             playingCards = [];
             guessedCards += 2;
@@ -225,20 +226,16 @@ const flipTwoCards = () => {
             setTimeout(() => {
                 clickCounter = 0;
                 playingCards = [];
-            }, 1000)
+            }, oneSecond)
           }
         }
         handleGameOver(guessedCards);
     })
 }
 
-const handleClick = () => {
-    flipTwoCards();
-}
-
 const initApp = () => {
     loadCards(cards);
-    handleClick();
+    flipCards();
 }
 
 document.addEventListener('DOMContentLoaded', initApp);
