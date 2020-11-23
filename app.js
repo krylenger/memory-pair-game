@@ -98,7 +98,6 @@ const styleNewCardFlipperFront = (newCardFlipperFront, card, cardNumber) => {
 }
 
 const createNewCard = (card, cardNumber) => {
-    console.log(cardNumber);
     const newCard = document.createElement('div');
     const newCardFlipper = document.createElement('div');
     const newCardFlipperFront = document.createElement('div');
